@@ -7,14 +7,17 @@ public class DummyCard extends SpecialCard {
 
   public DummyCard(String name, String description, Nation nation, Integer maxStrengthSwap) {
     super(name, description, nation);
+    if (maxStrengthSwap == null || maxStrengthSwap < 0)
+      throw new IllegalArgumentException("Max strength swap not valid");
     this.maxStrengthSwap = maxStrengthSwap;
   }
 
   public void doAction() {
-    System.out.println("Swap any unit card to " + this.maxStrengthSwap + " of strength");
+    System.out.printf("%s | Swap any unit card to %s of strength\n", super.getName(), this.maxStrengthSwap);
   }
 
-  public String stats() {
+  public String info() {
     return "Id: %s | Name: %s | Description %s | Nation: %s | Max strength to swap: %s".formatted(super.getId(), super.getName(), super.getDescription(), super.getNation(), this.maxStrengthSwap);
   }
+
 }

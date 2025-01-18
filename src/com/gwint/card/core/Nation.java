@@ -1,5 +1,7 @@
 package com.gwint.card.core;
 
+import com.gwint.StringUtils;
+
 public enum Nation {
   MONSTERS("Monsters"),
   NILFGAARDIAN("Nilfgaardian"),
@@ -15,5 +17,10 @@ public enum Nation {
 
   public String getName() {
     return this.name;
+  }
+
+  @Override
+  public String toString() {
+    return StringUtils.capitalCaseOf(this.name);
   }
 }

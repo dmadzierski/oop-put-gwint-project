@@ -7,14 +7,16 @@ public class HornCard extends SpecialCard {
 
   public HornCard(String name, String description, Nation nation, Integer boostPower) {
     super(name, description, nation);
+    if (boostPower == null || boostPower < 1)
+      throw new IllegalArgumentException("Boost power is not valid");
     this.boostPower = boostPower;
   }
 
   public void doAction() {
-    System.out.println("I boost power of units on board by " + this.boostPower);
+    System.out.printf("%s | I boost power of units on board by %s\n", super.getName(), this.boostPower);
   }
 
-  public String stats() {
+  public String info() {
     return "Id: %s | Name: %s | Description %s | Nation: %s | Boost power: %s".formatted(super.getId(), super.getName(), super.getDescription(), super.getNation(), this.boostPower);
   }
 }

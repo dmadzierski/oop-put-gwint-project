@@ -10,7 +10,7 @@ enum Action {
 
   private final String description;
 
-  private Action(String description) {
+  Action(String description) {
     this.description = description;
   }
 
